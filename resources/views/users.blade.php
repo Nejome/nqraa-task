@@ -84,9 +84,13 @@
                                 <a href="/users/{{$user->id}}/edit" class="hover:text-yellow-600">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a href="/users/{{$user->id}}/delete" class="hover:text-red-600">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
+                                <form method="post" action="/users/{{$user->id}}" class="inline-block">
+                                    @csrf
+                                    @method ('delete')
+                                    <button type="submit" class="hover:text-red-600">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     @endforeach
